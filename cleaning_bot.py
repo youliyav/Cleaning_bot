@@ -99,7 +99,7 @@ async def all_msg_handler(message: types.Message):
     else:
         reply_text = "Ничего не понятно, но очень интересно\n" \
                      "Попробуем еще раз?\n" \
-                     "Используй команду \start в меню"
+                     "Используй команду '\start' в меню"
 
     await message.reply(reply_text, reply_markup=types.ReplyKeyboardRemove())
     # с сообщением отправляется types.ReplyKeyboardRemove(), чтобы скрыть клавиатуру
