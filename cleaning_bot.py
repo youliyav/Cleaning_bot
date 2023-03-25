@@ -90,11 +90,16 @@ async def all_msg_handler(message: types.Message):
                      "Помыть цветы и подстричь лишние листья\n"\
                      "Глажка постельного белья\n"
 
-    else:
-        reply_text = "Балкон!\n"\
-                     "Пропылесосить балкон\n"\
-                     "Выкинуть ненужное / сломаннное\n"\
+    elif button_text == 'Вс':
+        reply_text = "Балкон!\n" \
+                     "Пропылесосить балкон\n" \
+                     "Выкинуть ненужное / сломаннное\n" \
                      "Навести порядок, если захламлено"
+
+    else:
+        reply_text = "Ничего не понятно, но очень интересно\n" \
+                     "Попробуем еще раз?\n" \
+                     "Используй команду \start в меню"
 
     await message.reply(reply_text, reply_markup=types.ReplyKeyboardRemove())
     # с сообщением отправляется types.ReplyKeyboardRemove(), чтобы скрыть клавиатуру
