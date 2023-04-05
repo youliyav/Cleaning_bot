@@ -45,37 +45,37 @@ async def all_msg_handler(message: types.Message):
     # в реальном боте лучше определить message_handler(text="...") для каждой кнопки
     # но здесь для простоты определен только один обработчик
 
-    button_text = message.text
+    button_text = message.text.lower()
     logger.debug('The answer is %r', button_text)  # напечатает текст, который у нас есть
 
-    if button_text == 'Пн':
+    if button_text == 'пн' or button_text == 'понедельник':
         reply_text = "Сегодня кухня!\n"\
                      "Помыть раковину с дезинфицирующим средством\n"\
                      "Протереть бытовую технику\n"\
                      "Протереть фасад кухни\n"\
                      "Протереть подоконник"
 
-    elif button_text == 'Вт':
+    elif button_text == 'вт' or button_text == 'вторник':
         reply_text = "Сегодня прихожая!\n"\
                      "Протереть зеркало и стеклянную поверхность дверей\n"\
                      "Навести порядок в обуви\n"\
                      "Почистить все коврики пылесосом\n"\
 
-    elif button_text == 'Ср':
+    elif button_text == 'ср' or button_text == 'среда':
         reply_text = "Сегодня ванная!\n"\
                      "Помыть ванную и раковину\n"\
                      "Протереть краны, мыльницу и все блестящие поверхности\n"\
                      "Помыть унитаз\n"\
                      "Стирка детского белья"
 
-    elif button_text == 'Чт':
+    elif button_text == 'чт' or button_text == 'четверг':
         reply_text = "Сегодня детская!\n"\
                      "Расставить аккуратно все на полочках, протереть пыль с сувениров\n"\
                      "Уборка на компьютерном столе\n"\
                      "Протереть подоконник\n"\
                      "Стирка взрослой одежды"
 
-    elif button_text == 'Пт':
+    elif button_text == 'пт' or button_text == 'пятница':
         reply_text = "Сегодня чистим везде!\n"\
                      "Поменять постельное белье, повесить чистые полотенца в ванную\n"\
                      "Пропылесосить квартиру\n"\
@@ -84,13 +84,13 @@ async def all_msg_handler(message: types.Message):
                      "Помыть полы\n"\
                      "Стирка постельного белья и полотенец"
 
-    elif button_text == 'Сб':
+    elif button_text == 'сб' or button_text == 'суббота':
         reply_text = "Сегодня окна!\n"\
                      "Помыть окна\n"\
                      "Помыть цветы и подстричь лишние листья\n"\
                      "Глажка постельного белья"
 
-    elif button_text == 'Вс':
+    elif button_text == 'вс' or button_text == 'воскресенье':
         reply_text = "Балкон!\n"\
                      "Пропылесосить балкон\n"\
                      "Выкинуть ненужное / сломаннное\n"\
@@ -99,7 +99,7 @@ async def all_msg_handler(message: types.Message):
     else:
         reply_text = "Ничего не понятно, но очень интересно\n"\
                      "Попробуем еще раз?\n"\
-                     "Используй команду '\start' в меню"
+                     "Используй команду '/start' в меню"
 
     await message.reply(reply_text, reply_markup=types.ReplyKeyboardRemove())
     # с сообщением отправляется types.ReplyKeyboardRemove(), чтобы скрыть клавиатуру
